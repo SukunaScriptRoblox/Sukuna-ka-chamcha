@@ -9,6 +9,7 @@ import asyncio
 from io import BytesIO
 from PIL import Image
 import requests
+from keep_alive import keep_alive
 
 curse_names = {
     "grade_1": ["Hanami", "Jogo", "Mahito"],
@@ -833,4 +834,5 @@ async def react_slash(interaction: discord.Interaction, message_id: str, emoji: 
     except discord.HTTPException as e:
         await interaction.response.send_message(f"❌ Failed to add reaction: {e}", ephemeral=True)
 # Run the bot with the toke (replace 'YOUR_TOKEN_HERE' with your bot's token)
+keep_alive()
 bot.run('MTQwNDEyMjAzMjk0NTUwMDMwMQ.G8cQJo.GCE3jhDMawLIgyGrWHTFaHFN-8VkKPnULSBSw0')
