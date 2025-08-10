@@ -496,13 +496,13 @@ async def nitro_search_slash(interaction: discord.Interaction, search: str = Non
     
     total_servers = len(set(e['guild_name'] for e in global_emojis.values()))
 more_text = f"\n... and {len(filtered_emojis) - 15} more" if len(filtered_emojis) > 15 else ""
-    
-    search_text = f" matching '{search}'" if search else ""
-    await interaction.response.send_message(
-        f"🎉 **NITRO MODE:** Found {len(filtered_emojis)} emojis{search_text} across **{total_servers}** servers!\n\n"
-        f"{emoji_text}{more_text}\n\n"
-        f"💡 Use `/use <emoji_id> <emoji_name>` to use any emoji anywhere!"
-    )
+
+search_text = f" matching '{search}'" if search else ""
+await interaction.response.send_message(
+    f"🎉 **NITRO MODE:** Found {len(filtered_emojis)} emojis{search_text} across **{total_servers}** servers!\n\n"
+    f"{emoji_text}{more_text}\n\n"
+    f"💡 Use `/use <emoji_id> <emoji_name>` to use any emoji anywhere!"
+)
 
 # Auto emoji replacement feature!
 @bot.tree.command(name="emoji_text", description="🎉 Convert text with :emoji: into actual emojis (Nitro-like!)")
